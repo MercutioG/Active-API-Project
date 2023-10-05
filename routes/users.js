@@ -1,7 +1,7 @@
 // Task blueprint pretty much
 const mongoose = require('mongoose');
 
-const users = new mongoose.Schema({
+const User = new mongoose.Schema({
     Username: {
         type: String,
         required: true,
@@ -24,6 +24,6 @@ const users = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('User', users);
+module.exports = mongoose.model('Users', User);
 
 
