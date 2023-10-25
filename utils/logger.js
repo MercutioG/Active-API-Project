@@ -1,1 +1,0 @@
-// Log messages in the logs.txt file which can be used for error handleing and overall applicaiton upkeep.
