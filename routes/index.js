@@ -7,9 +7,12 @@ const {ensureAuthenticated} = require('../config/auth')
 router.get('/', (req, res) => {
   res.render('./pages/welcome')
 })
-// register page
+// register/login page
 router.get('/register', (req, res) => {
   res.render('./pages/register')
+})
+router.get('/login', (req, res) => {
+  res.render('./pages/login')
 })
 
 // dashboard-homepage redirect
