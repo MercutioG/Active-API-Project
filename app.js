@@ -10,7 +10,6 @@ const app = express()
 const mongoose = require('mongoose')
 const expressEJSLayout = require('express-ejs-layouts')
 const port = 3000
-app.set('view engine', 'ejs')
 
 try {
   mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
@@ -24,6 +23,7 @@ app.use(morgan('tiny'))
 // EJS
 app.set('view engine', 'ejs')
 app.use(expressEJSLayout)
+app.use(express.static('/views/public'))
 // Body Parser
 app.use(express.urlencoded({extended: false}))
 // Express Session
@@ -45,5 +45,6 @@ app.use((req, res, next) => {
 // Routes
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
+app.use('/public', express.static('./views/public'))
 
 app.listen(port)
