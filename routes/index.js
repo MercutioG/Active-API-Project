@@ -7,6 +7,9 @@ const {ensureAuthenticated} = require('../config/auth')
 router.get('/', (req, res) => {
   res.render('./pages/login')
 })
+router.get('/payment-method', (req, res) => {
+  res.render('./pages/payment')
+})
 // register/login page
 router.get('/register', (req, res) => {
   res.render('./pages/register')
