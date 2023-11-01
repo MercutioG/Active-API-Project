@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
 
 // Register page takes them to registration page
 router.get('/register', (req, res) => {
-  res.render('Register')
+  res.render('register')
 })
 
 // Register Handler this is a template, not the norm
