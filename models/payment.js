@@ -1,36 +1,42 @@
 const mongoose = require('mongoose');
 const PaymentSchema  = new mongoose.Schema({
-  // security number, zip, state, city, country, address, userID
-  name :{
+  name_on_card:{
     type  : String,
     required : true
   } ,
+  expiry_date :{
+    type : String,
+    required : true
+  },
   card_number :{
     type : String,
-    pattern : "^\d{4}[[:blank:]||-]?\d{4}[[:blank:]||-]?\d{4}[[:blank:]||-]?\d{4}$",
     required : true
   },
-  expiration_date :{
-    type : string,
-    pattern : "^\d{2}\/\d{2}$",
-    required : true
-  },
-  cvc_code :{
+  ccv :{
     type : String,
-    pattern : "\d{3}",
     required : true
   },
-  zip :{
-    type : Number,
-    min: 5,
-    max: 5,
+  email :{
+    type : String,
+    required : true
+  },
+  country :{
+    type : String,
+    required : true
+  },
+  city :{
+    type : String,
     required : true
   },
   state :{
     type : String,
     required : true
   },
-  country :{
+  zip :{
+    type : Number,
+    required : true
+  },
+  street_address :{
     type : String,
     required : true
   },
@@ -43,6 +49,5 @@ const PaymentSchema  = new mongoose.Schema({
     default : Date.now
   }
 },{collection : 'Payment'});
-const Payment = mongoose.model('User', PaymentSchema);
 
-module.exports = Payment;
+module.exports = PaymentSchema;
